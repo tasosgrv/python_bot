@@ -5,10 +5,10 @@ import telepot
 import random
 
 def guessnum(text, chat_id, msg_id): 
-	num = random.randint(1,10)
-	for s in text.split():
-        	if s.isdigit():
-                	int(s)
+	num = random.randint(1,10)  #Generates the lucky number
+	for s in text.split():      #for every character from the message
+        	if s.isdigit():     #if a character is number
+                	int(s)	    #turn it to integer
 
 	if num == int(s):
 		bot.sendMessage(chat_id, "Well Done. You guessed right.\nThe numeber is: "+str(num),None,None,msg_id)	
@@ -19,7 +19,7 @@ def guessnum(text, chat_id, msg_id):
 			bot.sendMessage(chat_id, "You lose, \n The number is: "+str(num),None,None,msg_id)
 
 def handle(msg):
-	pprint.pprint(msg)
+	#pprint.pprint(msg)
 	chat_id = msg['chat']['id']
 	if 'username' in msg['from']:
 		user = '@'+msg['from']['username']
@@ -38,7 +38,7 @@ def handle(msg):
 	elif "/dice" in text:
 		bot.sendMessage(chat_id, random.randint(1,6),None,None,msg_id)
 	elif "/info" in text:
-		bot.sendMessage(chat_id, "This is a test bot written in python by @tasosgrv",None,None,msg_id)
+		bot.sendMessage(chat_id, "This is a test bot written in python by @tasosgrv\n\nYou can see the code an contribute here: https://github.com/sakafliasg4/python_bot.git",None,None,msg_id)
 	elif "/hello" in text:
 		bot.sendMessage(chat_id, "Hello, "+user+" and welcome to chat!",None,None,msg_id)
 	elif "/help" in text:
