@@ -25,14 +25,14 @@ def handle(msg):
 		user = '@'+msg['from']['username']
 	else:
 		if 'last_name' in msg['from']:
-			 user = msg['from']['first_name']+' '+msg['from']['last_name']
+			 user = "!You dont have a unique usarname (e.g @username) go to settings to create one!\n"+msg['from']['first_name']+' '+msg['from']['last_name']
 		else:
-			user = msg['from']['first_name']
+			user = "!You dont have a unique usarname (e.g @username) go to settings to create one!\n"+msg['from']['first_name']
 	text = msg['text']
 	msg_id = msg['message_id']
 
 	if "/whoami" in text:
-		bot.sendMessage(chat_id, user)
+		bot.sendMessage(chat_id, user,None,None,msg_id)
 	elif "/time" in text:
 		bot.sendMessage(chat_id, time.asctime(time.localtime(time.time())),None,None,msg_id)
 	elif "/dice" in text:
