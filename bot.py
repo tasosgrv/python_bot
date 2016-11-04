@@ -2,7 +2,7 @@ import sys
 import time
 import pprint
 import telepot
-import random
+from random import *
 
 def guessnum(text, chat_id, msg_id): 
 	num = random.randint(1,10)  #Generates the lucky number
@@ -17,6 +17,7 @@ def guessnum(text, chat_id, msg_id):
 			bot.sendMessage(chat_id, "You must enter a number between 1 to 10, Try Again",None,None,msg_id)
 		else:
 			bot.sendMessage(chat_id, "You lose, \n The number is: "+str(num),None,None,msg_id)
+	
 
 def handle(msg):
 	#pprint.pprint(msg)
@@ -36,7 +37,7 @@ def handle(msg):
 	elif "/time" in text:
 		bot.sendMessage(chat_id, time.asctime(time.localtime(time.time())),None,None,msg_id)
 	elif "/dice" in text:
-		bot.sendMessage(chat_id, random.randint(1,6),None,None,msg_id)
+		bot.sendMessage(chat_id,randrange(1,6),None,None,msg_id)
 	elif "/info" in text:
 		bot.sendMessage(chat_id, "This is a test bot written in python by @tasosgrv\n\nYou can see the code an contribute here: https://github.com/sakafliasg4/python_bot.git",None,None,msg_id)
 	elif "/hello" in text:
@@ -52,7 +53,6 @@ def handle(msg):
 # Getting the token from command-line is better than embedding it in code,
 # because tokens are supposed to be kept secret.
 TOKEN = sys.argv[1]
-
 bot = telepot.Bot(TOKEN)
 bot.message_loop(handle)
 # Keep the program running.
