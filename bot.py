@@ -54,7 +54,7 @@ def handle(msg):
 TOKEN = sys.argv[1]
 
 bot = telepot.Bot(TOKEN)
-bot.notifyOnMessage(handle)
+bot.message_loop(handle)
 # Keep the program running.
 while 1:
     time.sleep(10)
