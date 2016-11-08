@@ -5,7 +5,7 @@ import telepot
 from random import *
 
 def guessnum(text, chat_id, msg_id): 
-	num = random.randint(1,10)  #Generates the lucky number
+	num = randrange(1,10)  #Generates the lucky number
 	for s in text.split():      #for every character from the message
         	if s.isdigit():     #if a character is number
                 	int(s)	    #turn it to integer
