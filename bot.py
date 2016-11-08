@@ -45,7 +45,7 @@ def handle(msg):
 	elif "/help" in text:
 		bot.sendMessage(chat_id, "======COMMANDS======\n /whoami - Returns your name\n /hello - The bot says hello\n /time - Shows the current time\n /dice - Roll the dice\n /guessnum [number] - Guess a number between 1 to 10\n /info -  Informations aboot the bot\n /help - shows is message")
 	elif "/guessnum" in text:	
-		if text == "/guessnum":
+		if text == "/guessnum" or text == "/guessnum@pyth_bot":
 			bot.sendMessage(chat_id, "You must type a number after the command\ne.g. /guessnum 6",None,None,msg_id)
 		else:
 			guessnum(text, chat_id, msg_id)
