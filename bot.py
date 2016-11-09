@@ -5,7 +5,7 @@ import telepot
 from random import *
 
 def guessnum(text, chat_id, msg_id): 
-	num = randrange(1,10)  #Generates the lucky number
+	num = randrange(1,11)  #Generates the lucky number
 	for s in text.split():      #for every character from the message
         	if s.isdigit():     #if a character is number
                 	int(s)	    #turn it to integer
@@ -37,7 +37,7 @@ def handle(msg):
 	elif "/time" in text:
 		bot.sendMessage(chat_id, time.asctime(time.localtime(time.time())),None,None,msg_id)
 	elif "/dice" in text:
-		bot.sendMessage(chat_id,randrange(1,6),None,None,msg_id)
+		bot.sendMessage(chat_id,randrange(1,7),None,None,msg_id)
 	elif "/info" in text:
 		bot.sendMessage(chat_id, "This is a test bot written in python by @tasosgrv\n\nYou can see the code an contribute here: https://github.com/sakafliasg4/python_bot.git",None,None,msg_id)
 	elif "/hello" in text:
