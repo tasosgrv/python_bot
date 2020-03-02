@@ -2,6 +2,7 @@ import sys
 import time
 import pprint
 import telepot
+from telepot.loop import MessageLoop
 from random import *
 
 def guessnum(text, chat_id, msg_id): 
@@ -54,4 +55,7 @@ def handle(msg):
 # because tokens are supposed to be kept secret.
 TOKEN = sys.argv[1]
 bot = telepot.Bot(TOKEN)
-bot.message_loop(handle, run_forever=True)
+MessageLoop(bot, handle).run_as_thread()
+print 'Listening...'
+
+while 1: time.sleep(10)
