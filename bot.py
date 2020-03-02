@@ -54,7 +54,4 @@ def handle(msg):
 # because tokens are supposed to be kept secret.
 TOKEN = sys.argv[1]
 bot = telepot.Bot(TOKEN)
-bot.message_loop(handle)
-# Keep the program running.
-while 1:
-    time.sleep(10)
+bot.message_loop(handle, run_forever=True)
